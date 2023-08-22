@@ -34,10 +34,6 @@ class MyString:
             return False
     
     def count_sentences(self):
-        new_string = self.value.replace('!', '.')    
-        newer_string = new_string.replace('?', '.')  
-
-        sentence_list = newer_string.split('.') 
-        sentence_list = [n for n in sentence_list if n]
-
+        cleaned_string = self.value.replace('!', '.').replace('?', '.')
+        sentence_list = [sentence for sentence in cleaned_string.split('.') if sentence.strip()]
         return len(sentence_list)
